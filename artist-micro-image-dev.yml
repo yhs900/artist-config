@@ -1,0 +1,67 @@
+#数据库前缀
+database_prefix: dev-
+APP_DIR: /batar/app_dir
+#APP_DIR: F:\artist_dir
+logging:
+  file: /logs/${spring.application.name}/main.log
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://172.18.42.23:3306/${database_prefix}artist-micro-image?characterEncoding=utf8
+    username: root
+    password: q100_flzx
+    driverClassName: com.mysql.jdbc.Driver
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 30000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    filters: stat,wall,log4j
+    useGlobalDataSourceStat: true
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password:
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+    
+# fegin超时时间   
+hystrix:  
+  command:  
+    default:  
+      execution:  
+        isolation:  
+          thread:  
+            timeoutInMilliseconds: 10000

@@ -1,0 +1,37 @@
+
+spring:
+  http:
+    multipart:
+      max-file-size: 512Mb
+      max-request-size: 512Mb
+  mvc:
+    throw-exception-if-no-handler-found: false
+  resources:
+    add-mappings: false
+
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: /logs/tomcat.log
+    access-log-enabled: true
+    access-log-pattern: common
+
+
+logging:
+  file: /logs/${spring.application.name}/main.log
+
+zuul:
+  host:
+    max-per-route-connections: 10000
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 10000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+            
