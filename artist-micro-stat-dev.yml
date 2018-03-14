@@ -5,7 +5,7 @@ logging:
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
-    url: jdbc:mysql://172.18.42.23:3306/${database_prefix}artist-micro-stat?characterEncoding=utf8
+    url: jdbc:mysql://172.18.42.23:3306/artist-micro-stat?characterEncoding=utf8
     username: root
     password: q100_flzx
     driverClassName: com.mysql.jdbc.Driver
