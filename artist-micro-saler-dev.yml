@@ -1,7 +1,6 @@
-#数据库前缀
 database_prefix: dev-
 logging:
-  file: /logs/${spring.application.name}/main.log 
+  file: /logs/${spring.application.name}/main.log
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -47,19 +46,20 @@ spring:
     database: 0
     host: 127.0.0.1
     port: 6379
-    password:
+    password: null
     pool:
       max-active: 8
       max-wait: -1
       max-idle: 8
       min-idle: 0
     timeout: 0
-    
-# fegin超时时间   
-hystrix:  
-  command:  
-      default:  
-        execution:  
-          isolation:  
-            thread:  
-              timeoutInMilliseconds: 10000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+sale:
+  ftp:
+    path: /batar/app_dir/ftp/sale
